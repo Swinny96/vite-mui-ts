@@ -14,6 +14,10 @@ const config: StorybookConfig = {
         postCss: {
           implementation: require.resolve('postcss'),
         },
+        sass: {
+          // Require your Sass preprocessor here
+          implementation: require('sass'),
+        },
       },
     },
     '@storybook/addon-a11y',

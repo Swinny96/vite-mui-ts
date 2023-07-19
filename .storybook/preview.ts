@@ -1,8 +1,15 @@
 import type { Preview } from '@storybook/react';
 import '../src/tailwind.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import '../src/index.scss';
+
+// Only import this if you want to use Bootstrap's
+// JQuery helpers
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 import { ThemeProvider, CssBaseline } from '@mui/material';
-import { withThemeFromJSXProvider } from '@storybook/addon-styling';
+import { withThemeFromJSXProvider,withThemeByDataAttribute } from '@storybook/addon-styling';
 
 /* TODO: update import for your custom Material UI themes */
 // import { lightTheme, darkTheme } from '../path/to/themes';
@@ -14,6 +21,8 @@ const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
+      expanded: true,
+      hideNoControlsWarning: true,
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/,
@@ -33,6 +42,14 @@ const preview: Preview = {
       //   dark: darkTheme,
       // },
       // defaultTheme: 'light',
+    }),
+    withThemeByDataAttribute({
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+      attributeName: 'data-bs-theme',
     }),
   ],
 };
