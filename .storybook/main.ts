@@ -17,6 +17,8 @@ const config: StorybookConfig = {
       },
     },
     '@storybook/addon-a11y',
+    '@storybook/addon-storysource',
+    '@storybook/addon-highlight',
   ],
   framework: {
     name: '@storybook/react-vite',
