@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import '../src/tailwind.css';
 
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { withThemeFromJSXProvider } from '@storybook/addon-styling';
