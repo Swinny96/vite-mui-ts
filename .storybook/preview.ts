@@ -2,7 +2,18 @@ import type { Preview } from '@storybook/react';
 import '../src/tailwind.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// MUI Fonts
+
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import '@fontsource/material-icons';
+
 import '../src/index.scss';
+
+// MUI Themes
+import { lightTheme, darkTheme } from '../src/themes.js';
 
 // Only import this if you want to use Bootstrap's
 // JQuery helpers
@@ -35,22 +46,21 @@ const preview: Preview = {
     withThemeFromJSXProvider({
       GlobalStyles: CssBaseline,
       // Uncomment for theme switching
-      // Provider: ThemeProvider,
-      // themes: {
-      // Provide your custom themes here
-      //   light: lightTheme,
-      //   dark: darkTheme,
-      // },
-      // defaultTheme: 'light',
+      defaultTheme: 'light',
+      Provider: ThemeProvider,
+      themes: {
+        light: lightTheme,
+        dark: darkTheme,
+      }
     }),
-    withThemeByDataAttribute({
+    /*withThemeByDataAttribute({
       themes: {
         light: 'light',
         dark: 'dark',
       },
       defaultTheme: 'light',
       attributeName: 'data-bs-theme',
-    }),
+    }),*/
   ],
 };
 
